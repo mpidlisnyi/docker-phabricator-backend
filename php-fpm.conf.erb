@@ -1,0 +1,23 @@
+[phabricator]
+
+listen = [::]:9000
+listen.backlog = 65535
+
+pm = static
+pm.max_children = <%= ENV['PM_MAX_CHILDREN'] ? ENV['PM_MAX_CHILDREN'] : 1 %>
+
+pm.max_requests = <%= ENV['PM_MAX_REQUESTS'] ? ENV['PM_MAX_REQUESTS'] : 500 %>
+
+request_slowlog_timeout = 0
+request_terminate_timeout = 0
+
+rlimit_files = 65000
+rlimit_core = 0
+
+chdir = /var/www/phabricator/phabricator/webroot
+
+catch_workers_output = yes
+
+clear_env = no
+
+security.limit_extensions = .php
