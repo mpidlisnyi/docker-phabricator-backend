@@ -1,5 +1,5 @@
 #!/bin/bash
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+source /phabricator_configs_init.sh
 erb -T - /php-fpm.conf.erb > /usr/local/etc/php-fpm.conf
-erb -T - /phabricator.json.erb > /var/www/phabricator/phabricator/conf/local/local.json
+bin/storage upgrade --force 2>&1 >/dev/null
 exec ${@}
