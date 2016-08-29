@@ -1,6 +1,6 @@
 [phabricator]
 
-listen = [::]:9000
+listen = <%= ENV['LISTEN'] ? ENV['LISTEN'] : '[::]:9000' %>
 listen.backlog = 65535
 
 pm = static
