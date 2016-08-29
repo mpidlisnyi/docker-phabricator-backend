@@ -1,6 +1,7 @@
 [phabricator]
 
 listen = <%= ENV['LISTEN'] ? ENV['LISTEN'] : '[::]:9000' %>
+listen.mode = <%= ENV['LISTEN_MODE'] ? ENV['LISTEN_MODE'] : '0666' %>
 listen.backlog = 65535
 
 pm = static
